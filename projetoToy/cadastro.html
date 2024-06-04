@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>CADASTRO</title>
+
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #FF6347, #00FFFF);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #login {
+            text-align: center;
+        }
+
+        .caixa {
+            background-color: #FFFFFF;
+            padding: 40px;
+            border-radius: 30px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+            max-width: 400px;
+            width: 90%;
+        }
+
+        h1 {
+            color: #333333;
+            font-weight: 700;
+            margin-bottom: 30px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            border: none;
+            border-radius: 25px;
+            padding: 12px 20px; /* Ajustado o padding */
+            width: calc(100% - 40px); /* Largura ajustada para acomodar o padding */
+            margin-bottom: 20px;
+            background-color: #F5F5F5;
+            color: #666666;
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+            outline: none;
+        }
+
+        input[type="submit"] {
+            cursor: pointer;
+            width: 100%;
+            border: none;
+            border-radius: 25px;
+            padding: 12px 20px;
+            background: linear-gradient(135deg, #FF69B4, #00FFFF);
+            color: #FFFFFF;
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            text-transform: uppercase;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background: linear-gradient(135deg, #FF1493, #00CED1);
+        }
+
+        p {
+            color: #666666;
+            font-size: 14px;
+            margin-top: 20px;
+        }
+
+        a {
+            color: #FF6347;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div id="login">
+
+        <div class="caixa">
+
+            <h1>CADASTRO</h1>
+
+            <div class="name">
+                <input type="text" placeholder="Nome">
+            </div>
+
+            <div class="email">
+                <input type="email" placeholder="E-mail">
+            </div>
+
+            <div class="senha">
+                <input type="password" placeholder="Senha">
+            </div>
+
+            <div class="senha">
+                <input type="password" placeholder="Confirme a sua senha">
+            </div>
+
+            <div class="entrar">
+                <p>Já tem uma conta? <a href="index.html">Entre aqui.</a></p>
+                <input type="submit" value="Cadastrar">
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

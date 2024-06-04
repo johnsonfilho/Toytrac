@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Produtos</title>
+    <style>
+        body {
+            font-family: "Comic Sans MS", cursive, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #FFDAB9; /* Pêssego */
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        }
+        input[type="text"], input[type="number"], select {
+            width: calc(100% - 20px);
+            padding: 15px;
+            margin: 10px 0;
+            border: 2px solid #FF6347; /* Tomate */
+            border-radius: 10px;
+            box-sizing: border-box;
+            font-size: 18px;
+        }
+        input[type="submit"] {
+            background-color: #FF4500; /* Laranja vermelho */
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-top: 20px;
+            font-size: 20px;
+            transition: all 0.3s ease;
+        }
+        input[type="submit"]:hover {
+            background-color: #FF6347; /* Tomate */
+        }
+        .tab {
+            overflow: hidden;
+            border: 2px solid #FF6347; /* Tomate */
+            background-color: #FFDAB9; /* Pêssego */
+            border-radius: 20px;
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-around;
+        }
+        .tab button {
+            background-color: #FF6347; /* Tomate */
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 20px;
+            transition: all 0.3s ease;
+            border-radius: 20px 20px 0 0;
+            font-size: 20px;
+        }
+        .tab button:hover {
+            background-color: #FF4500; /* Laranja vermelho */
+        }
+        .tab button.active {
+            background-color: #FF4500; /* Laranja vermelho */
+            color: white;
+        }
+        .tabcontent {
+            display: none;
+            padding: 20px;
+            border: 2px solid #FF6347; /* Tomate */
+            border-top: none;
+            border-radius: 0 0 20px 20px;
+            margin-top: -2px;
+        }
+        /* Estilos para o menu de navegação */
+        .menu {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .menu a {
+            text-decoration: none;
+            color: #FF6347;
+            font-size: 18px;
+            margin: 0 10px;
+        }
+        .menu a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 style="text-align: center; color: #FF6347;">Cadastro de Produtos</h1>
+
+        <!-- Menu de navegação -->
+        <div class="menu">
+            <a href="reservas.html">Reservas</a>
+            <a href="gerenciarsaidas.html">Gerenciar Saídas</a>
+            <a href="sobre.html">Sobre</a>
+        </div>
+
+        <div class="tab">
+            <button class="tablinks" onclick="openTab(event, 'Jogos')">🎮 Jogos</button>
+            <button class="tablinks" onclick="openTab(event, 'Brinquedos')">🎈 Brinquedos</button>
+        </div>
+
+        <div id="Jogos" class="tabcontent">
+            <form action="processar_cadastro.php" method="POST">
+                <label for="nomeJogo">Nome do Jogo:</label>
+                <input type="text" id="nomeJogo" name="nomeJogo" required>
+
+                <label for="tipoJogo">Tipo de Jogo:</label>
+                <select id="tipoJogo" name="tipoJogo" required>
+                    <option value="Encaixe">Encaixe</option>
+                    <option value="Tabuleiro">Tabuleiro</option>
+                    <option value="Quebra-Cabeças">Quebra-Cabeças</option>
+                    <option value="Cartas">Cartas</option>
+                    <option value="Montagem">Montagem</option>
+                    <option value="Outros">Outros</option>
+                </select>
+
+                <label for="faixaEtariaJogo">Faixa Etária:</label>
+                <input type="number" id="faixaEtariaJogo" name="faixaEtariaJogo" required>
+
+                <label for="estagioDesenvolvimentoJogo">Estágio de Desenvolvimento:</label>
+                <select id="estagioDesenvolvimentoJogo" name="estagioDesenvolvimentoJogo" required>
+                    <option value="1">Estágio Sensorio Motor</option>
+                    <option value="2">Estágio Pré-Operatório</option>
+                    <option value="3">Estágio Operatório Concreto</option>
+                    <option value="4">Estágio Operatório Formal</option>
+                </select>
+
+                <label for="precoJogo">Preço:</label>
+                <input type="number" id="precoJogo" name="precoJogo" step="0.01" required>
+
+                <label for="quantidadeJogo">Quantidade:</label>
+                <input type="number" id="quantidadeJogo" name="quantidadeJogo" required>
+
+                <input type="submit" value="🚀 Cadastrar Jogo">
+            </form>
+        </div>
+
+        <div id="Brinquedos" class="tabcontent">
+            <form action="processar_cadastro.php" method="POST">
+                <label for="nomeBrinquedo">Nome do Brinquedo:</label>
+                <input type="text" id="nomeBrinquedo" name="nomeBrinquedo" required>
+        
+                <label for="tipoBrinquedo">Tipo de Brinquedo:</label>
+                <input type="text" id="tipoBrinquedo" name="tipoBrinquedo" required>
+        
+
+        
+                <label for="faixaEtariaBrinquedo">Faixa Etária:</label>
+                <input type="number" id="faixaEtariaBrinquedo" name="faixaEtariaBrinquedo" required>
+        
+                <label for="areaDesenvolvimentoBrinquedo">Área de Desenvolvimento:</label>
+                <select id="areaDesenvolvimentoBrinquedo" name="areaDesenvolvimentoBrinquedo" required>
+                    <option value="1">Social</option>
+                    <option value="2">Emocional</option>
+                </select>
+        
+                <label for="descricaoBrinquedo">Descrição:</label>
+                <input type="text" id="descricaoBrinquedo" name="descricaoBrinquedo" required>
+        
+                <label for="precoBrinquedo">Preço:</label>
+                <input type="number" id="precoBrinquedo" name="precoBrinquedo" step="0.01" required>
+        
+                <label for="quantidadeBrinquedo">Quantidade:</label>
+                <input type="number" id="quantidadeBrinquedo" name="quantidadeBrinquedo" required>
+        
+                <input type="submit" value="🚀 Cadastrar Brinquedo">
+            </form>
+        </div>
+        
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.classList.add("active");
+        }
+    
+        // Abre a primeira aba por padrão
+        document.querySelector(".tab button").click();
+    </script>
+    

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>ENTRAR</title>
+
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #FF6347, #00FFFF); /* Fundo degradê */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Para centralizar verticalmente */
+        }
+
+        #login {
+            text-align: center;
+            background-color: #FFFFFF; /* Cor de fundo branca */
+            padding: 40px;
+            border-radius: 20px; /* Borda arredondada */
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+        }
+
+        .name input,
+        .email input,
+        .senha input {
+            border-radius: 15px;
+            border: none;
+            width: 250px;
+            height: 40px;
+            padding-left: 15px;
+            margin-bottom: 15px;
+            background-color: #F5F5F5; /* Cor de fundo cinza claro */
+            color: #666666; /* Cor do texto cinza */
+        }
+
+        .entrar input {
+            cursor: pointer;
+            width: 120px;
+            height: 40px;
+            border-radius: 20px;
+            border: none;
+            background: linear-gradient(135deg, #FF69B4, #00FFFF); /* Degrade para o botão */
+            color: #FFFFFF; /* Cor do texto branco */
+            font-weight: bold; /* Negrito */
+        }
+
+        input::placeholder {
+            color: #BEBEBE; /* Cor do texto de placeholder */
+        }
+
+        h1 {
+            color: #000; /* Cor do texto preto */
+        }
+
+        .caixa {
+            margin-top: 65px;
+        }
+
+        .caixa img {
+            width: 115px;
+        }
+
+        input:focus {
+            outline: none;
+        }
+    </style>
+
+</head>
+
+<body id="principal">
+
+    <div id="login">
+
+        <div class="caixa">
+
+            <img src="img/logo.jpg" alt="">
+            <h1>LOGIN</h1>
+
+            <div class="email">
+                <input type="email" id="email" placeholder="E-mail">
+            </div>
+
+            <div class="senha">
+                <input type="password" id="senha" placeholder="Senha">
+            </div>
+
+            <div class="entrar">
+                <p>Ainda não tem uma conta? <a href="cadastro.html">Clique Aqui.</a></p>
+                <input type="submit" value="Entrar" onclick="validarLogin()">
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+        function validarLogin() {
+            var email = document.getElementById('email').value;
+            var senha = document.getElementById('senha').value;
+
+            // Verificar se o caampo de e-mail está vazio
+            if (email.trim() === '') {
+                alert('Por favor, insira seu e-mail.');
+                return false;
+            }
+
+            // Verificar se o campo de senha está vazio
+            if (senha.trim() === '') {
+                alert('Por favor, insira sua senha.');
+                return false;
+            }
+
+            // Se todos os campos estiverem preenchidos, fazer login
+            alert('Login realizado com sucesso!');
+            // Aqui você pode adicionar o código para redirecionar o usuário para a página desejada após o login
+        }
+    </script>
+
+</body>
+
+</html>

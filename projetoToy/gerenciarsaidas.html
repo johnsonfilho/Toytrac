@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciar Saídas de Produtos</title>
+    <style>
+        body {
+            font-family: "Comic Sans MS", cursive, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #87CEEB; /* Céu azul */
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        }
+        input[type="text"], input[type="number"], input[type="date"], select {
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            border: 2px solid #FFA07A; /* Salmão claro */
+            border-radius: 10px;
+            box-sizing: border-box;
+            font-size: 18px;
+        }
+        input[type="submit"] {
+            background-color: #FF6347; /* Tomate */
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-top: 20px;
+            font-size: 20px;
+            transition: all 0.3s ease;
+        }
+        input[type="submit"]:hover {
+            background-color: #FF4500; /* Laranja vermelho */
+        }
+        .tab {
+            overflow: hidden;
+            border: 2px solid #FFA07A; /* Salmão claro */
+            background-color: #FFDAB9; /* Pêssego */
+            border-radius: 20px;
+            margin-top: 20px;
+            display: flex;
+            justify-content: center; /* Centralizar os botões */
+        }
+        .tab button {
+            background-color: #FF6347; /* Tomate */
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 20px 40px; /* Aumentar a área de clique */
+            transition: all 0.3s ease;
+            border-radius: 20px 20px 0 0;
+        }
+        .tab button:hover {
+            background-color: #FF4500; /* Laranja vermelho */
+        }
+        .tab button.active {
+            background-color: #FF4500; /* Laranja vermelho */
+            color: white;
+        }
+        .tabcontent {
+            display: none;
+            padding: 20px;
+            border: 2px solid #FFA07A; /* Salmão claro */
+            border-top: none;
+            border-radius: 0 0 20px 20px;
+            margin-top: -2px;
+        }
+        .menu {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .menu a {
+            text-decoration: none;
+            color: #FF6347; /* Cor dos links */
+            font-size: 18px;
+            margin: 0 20px;
+            padding: 10px 15px; /* Adicionando espaço interno */
+            border-radius: 5px; /* Borda arredondada */
+            background-color: #FFDAB9; /* Cor de fundo */
+            transition: background-color 0.3s, color 0.3s; /* Transição suave */
+        }
+        .menu a:hover {
+            background-color: #FF6347; /* Cor de fundo ao passar o mouse */
+            color: white; /* Cor do texto ao passar o mouse */
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1 style="text-align: center; color: #FF6347;">Gerenciar Saídas de Produtos</h1>
+
+    <div class="menu">
+        <a href="reservas.html">Reservas</a>
+        <a href="cadastrodeprodutos.html">Cadastro de Produtos</a>
+        <a href="sobre.html">Sobre</a>
+    </div>
+    
+    <div class="tab">
+        <button class="tablinks" onclick="openTab(event, 'SaidasJogos')">🎮 Jogos</button>
+        <button class="tablinks" onclick="openTab(event, 'SaidasBrinquedos')">🎈 Brinquedos</button>
+    </div>
+
+    <div id="SaidasJogos" class="tabcontent">
+        <form action="processar_saida.php" method="POST">
+            <label for="nomeJogo">Nome do Jogo:</label>
+            <input type="text" id="nomeJogo" name="nomeJogo" required>
+
+            <label for="quantidadeSaidaJogo">Quantidade de Saída:</label>
+            <input type="number" id="quantidadeSaidaJogo" name="quantidadeSaidaJogo" required>
+
+            <label for="dataSaidaJogo">Data de Saída:</label>
+            <input type="date" id="dataSaidaJogo" name="dataSaidaJogo" required>
+
+            <label for="responsavelSaidaJogo">Responsável pela Saída:</label>
+            <input type="text" id="responsavelSaidaJogo" name="responsavelSaidaJogo" required>
+
+            <input type="submit" value="🚀 Registrar Saída">
+        </form>
+    </div>
+
+    <div id="SaidasBrinquedos" class="tabcontent">
+        <form action="processar_saida.php" method="POST">
+            <label for="nomeBrinquedo">Nome do Brinquedo:</label>
+            <input type="text" id="nomeBrinquedo" name="nomeBrinquedo" required>
+
+            <label for="quantidadeSaidaBrinquedo">Quantidade de Saída:</label>
+            <input type="number" id="quantidadeSaidaBrinquedo" name="quantidadeSaidaBrinquedo" required>
+
+            <label for="dataSaidaBrinquedo">Data de Saída:</label>
+            <input type="date" id="dataSaidaBrinquedo" name="dataSaidaBrinquedo" required>
+
+            <label for="responsavelSaidaBrinquedo">Responsável pela Saída:</label>
+            <input type="text" id="responsavelSaidaBrinquedo" name="responsavelSaidaBrinquedo" required>
+
+            <input type="submit" value="🚀 Registrar Saída">
+        </form>
+    </div>
+</div>
+
+<script>
+    function openTab(evt, tabName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(tabName).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+
+    // Abre a primeira aba por padrão
+    document.getElementsByClassName("tablinks")[0].click();
+</script>
+</body>
+</html>
